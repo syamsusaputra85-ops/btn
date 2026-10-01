@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Peta situs untuk Google Search Console
+Sitemap: https://syamstore.my.id
