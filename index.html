@@ -312,6 +312,102 @@
         font-size: 16px;
       }
     }
+/* Import Font dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+/* Section Wrapper */
+.video-section {
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Header Styling (Warna khas BTN: Biru Tua & Akses Emas) */
+.section-header h2 {
+  font-size: 28px;
+  color: #003366; /* Biru khas BTN */
+  margin-bottom: 8px;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.section-header h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #f39c12; /* Warna kuning/emas aksen */
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.section-header p {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Card Container untuk Video */
+.video-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  display: inline-block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Pembungkus Frame Video */
+.iframe-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: #000; /* Background hitam saat loading video */
+}
+
+/* Penyesuaian Responsif untuk Layar Kecil */
+@media (max-width: 480px) {
+  .section-header h2 {
+    font-size: 22px;
+  }
+  
+  .video-card {
+    padding: 12px;
+    width: 100%;
+    max-width: 310px;
+  }
+
+  .iframe-wrapper iframe {
+    width: 100% !important;
+  }
+}
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased pb-16 lg:pb-0">
@@ -399,7 +495,31 @@
       <div class="dots-container" id="dotsContainer"></div>
     </div>
   </section>
-  <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2102314900370252%2F&show_text=true&width=267&t=0" width="267" height="591" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+ <section class="video-section">
+    <div class="container">
+      <!-- Judul Bagian -->
+      <div class="section-header">
+        <h2>Dokumentasi & Video Reel</h2>
+        <p>BTN Banua Nagaya - Hunian Nyaman dan Impian Keluarga</p>
+      </div>
+
+      <!-- Card Video Embed -->
+      <div class="video-card">
+        <div class="iframe-wrapper">
+          <iframe 
+            src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2102314900370252%2F&show_text=true&width=267&t=0" 
+            width="267" 
+            height="591" 
+            style="border:none;overflow:hidden" 
+            scrolling="no" 
+            frameborder="0" 
+            allowfullscreen="true" 
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- 3. KONTEN LAINNYA DI BAWAH SLIDER (misal: deskripsi, produk, dll) -->
   <main>
