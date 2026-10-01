@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Lead BTN Banua Nagaya</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<style>
+.float-home-neon {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50px;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  z-index: 9999;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.float-home-neon .home-icon {
+  width: 20px;
+  height: 20px;
+  fill: #00f2fe;
+  transition: transform 0.3s ease;
+}
+
+.float-home-neon:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(15, 23, 42, 0.9);
+  border-color: #00f2fe;
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+  color: #00f2fe;
+}
+
+.float-home-neon:hover .home-icon {
+  transform: scale(1.2);
+  fill: #00f2fe;
+}
+  </style>
+<body class="bg-slate-900">
+
+  <section id="lead-form" class="py-16 lg:py-24 bg-gradient-to-b from-slate-900 to-emerald-950 text-white relative">
+    
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Banner Promo Atas -->
+      <div class="form-header bg-gradient-to-r from-emerald-600 to-emerald-800 text-white text-center p-4 rounded-2xl mb-8 shadow-xl border border-emerald-500/30">
+        <h3 class="text-lg sm:text-xl font-extrabold mb-1">🔥 Amankan Blok Pilihan Anda Sekarang</h3>
+        <p class="text-xs sm:text-sm text-emerald-100"><strong>PROMO TERBATAS:</strong> Cukup bayar uang booking blok, semua biaya lainnya 100% FREE! Isi data di bawah untuk cek sisa unit siap huni.</p>
+      </div>
+
+      <!-- Kartu Form -->
+      <div class="bg-slate-800/90 border border-slate-700 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-md">
+        
+        <div class="text-center max-w-2xl mx-auto mb-8">
+          <span class="text-xs font-bold text-emerald-400 tracking-widest uppercase block mb-1">Formulir Pendaftaran Survei</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
+            Jadwalkan Survei Lokasi & Dapatkan Brosur
+          </h2>
+          <p class="text-slate-300 text-xs sm:text-sm mt-2">
+            Isi form di bawah ini untuk terhubung langsung dengan tim marketing official BTN Banua Nagaya melalui WhatsApp.
+          </p>
+        </div>
+
+        <form onsubmit="handleFormSubmit(event)" class="space-y-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <!-- Nama Lengkap -->
+            <div>
+              <label for="leadNama" class="block text-xs font-semibold text-slate-300 mb-1">Nama Lengkap *</label>
+              <input type="text" id="leadNama" required placeholder="Contoh: Bpk. Ahmad" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 transition">
+            </div>
+
+            <!-- No WhatsApp -->
+            <div>
+              <label for="leadHp" class="block text-xs font-semibold text-slate-300 mb-1">Nomor WhatsApp Anda *</label>
+              <input type="tel" id="leadHp" required placeholder="Contoh: 08123456789" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 transition">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <!-- Rencana Pembayaran -->
+            <div>
+              <label for="leadSkema" class="block text-xs font-semibold text-slate-300 mb-1">Rencana Pembayaran *</label>
+              <select id="leadSkema" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 transition">
+                <option value="KPR Bank">KPR Bank (Cicilan Bulanan)</option>
+                <option value="Cash / Tunai Bertahap">Cash / Tunai Keras</option>
+                <option value="Konsultasi Dulu">Konsultasi Dulu</option>
+              </select>
+            </div>
+
+            <!-- Tanggal Rencana Survei -->
+            <div>
+              <label for="leadTanggal" class="block text-xs font-semibold text-slate-300 mb-1">Rencana Tanggal Survei *</label>
+              <input type="date" id="leadTanggal" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 transition [color-scheme:dark]">
+            </div>
+          </div>
+
+          <!-- Catatan Tambahan -->
+          <div>
+            <label for="leadPesan" class="block text-xs font-semibold text-slate-300 mb-1">Pertanyaan / Catatan Tambahan (Opsional)</label>
+            <textarea id="leadPesan" rows="2" placeholder="Misal: Mau tanya simulasi cicilan DP 0% atau promo bulan ini..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 transition"></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-500 text-white font-bold text-base py-4 rounded-xl shadow-lg shadow-emerald-500/30 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-3 cursor-pointer">
+            <i class="fa-brands fa-whatsapp text-2xl"></i>
+            <span>Kirim & Chat WhatsApp Sekarang</span>
+          </button>
+          
+          <p class="text-center text-[11px] text-slate-400">
+            *Data Anda aman dan langsung terhubung dengan tim agent resmi BTN Banua Nagaya.
+          </p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+<script>
+  function handleFormSubmit(event) {
+    // Mencegah halaman reload saat form di-submit
+    event.preventDefault();
+
+    // 1. Ambil nilai dari setiap input form
+    const nama = document.getElementById('leadNama').value.trim();
+    const hp = document.getElementById('leadHp').value.trim();
+    const skema = document.getElementById('leadSkema').value;
+    const tanggal = document.getElementById('leadTanggal').value;
+    const pesan = document.getElementById('leadPesan').value.trim();
+
+    // Nomor WhatsApp Tujuan
+    const targetWaNumber = "6285150531572";
+
+    // 2. Format tanggal agar lebih mudah dibaca (opsional)
+    let formattedDate = tanggal;
+    if (tanggal) {
+      const dateParts = tanggal.split('-');
+      if (dateParts.length === 3) {
+        formattedDate = `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
+      }
+    }
+
+    // 3. Susun teks pesan WhatsApp
+    let waMessage = `Halo Admin BTN Banua Nagaya, saya ingin mendaftar survei lokasi.\n\n`;
+    waMessage += `*Data Pendaftaran:* \n`;
+    waMessage += `• *Nama Lengkap:* ${nama}\n`;
+    waMessage += `• *No. WhatsApp:* ${hp}\n`;
+    waMessage += `• *Rencana Pembayaran:* ${skema}\n`;
+    waMessage += `• *Rencana Tanggal Survei:* ${formattedDate}\n`;
+
+    if (pesan) {
+      waMessage += `• *Catatan / Pertanyaan:* ${pesan}\n`;
+    }
+
+    waMessage += `\nMohon info ketersediaan unit dan jadwal survei lokasi. Terima kasih!`;
+
+    // 4. Encode pesan teks ke URL format
+    const encodedMessage = encodeURIComponent(waMessage);
+
+    // 5. Buat URL WhatsApp
+    const waUrl = `https://wa.me/${targetWaNumber}?text=${encodedMessage}`;
+
+    // 6. Buka WhatsApp di tab/aplikasi baru
+    window.open(waUrl, '_blank');
+  }
+</script>
+<!-- Tombol Melayang Neon/Glassmorphism -->
+<a href="https://winme.id/syam-store1/lp/banua-nagaya" class="float-home-neon" title="Kembali ke Home">
+  <svg viewBox="0 0 24 24" class="home-icon">
+    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+  </svg>
+  <span class="home-text">Kembali</span>
+</a>
+</body>
+</html>
