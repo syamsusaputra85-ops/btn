@@ -409,6 +409,93 @@ body {
   }
 }
   </style>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+  body { background:#f2f2f2; min-height:100vh; position:relative; }
+
+  #sedangDiminatiPopup {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    padding: 12px 16px 12px 12px;
+    max-width: 390px;
+    transform: translateY(-120%);
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(.22,1,.36,1), opacity 0.5s ease;
+    z-index: 9999;
+  }
+  #sedangDiminatiPopup.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .sd-thumb {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid #eee;
+  }
+  .sd-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .sd-text {
+    flex: 1;
+    line-height: 1.3;
+  }
+  .sd-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    font-size: 12px;
+  }
+  .sd-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #2ecc71;
+    display: inline-block;
+    animation: pulse 1.4s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(46,204,113,0.5); }
+    70% { box-shadow: 0 0 0 6px rgba(46,204,113,0); }
+    100% { box-shadow: 0 0 0 0 rgba(46,204,113,0); }
+  }
+  .sd-sub {
+    font-size: 12px;
+    color: #555;
+    margin-top: 2px;
+  }
+  .sd-time {
+    font-size: 11px;
+    color: #999;
+    margin-top: 3px;
+  }
+  .sd-close {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    font-size: 14px;
+    color: #bbb;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .sd-close:hover { color: #777; }
+</style>
+
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased pb-16 lg:pb-0">
 
@@ -1500,5 +1587,63 @@ body {
   });
 </script>
 <!-- ==================== END POPUP MODAL ==================== -->
+<div class="show" id="sedangDiminatiPopup">
+  <span class="sd-close" onclick="closePopup()">×</span>
+  <div class="sd-thumb">
+    <img alt="Umpan Pancing 120X" src="https://res.cloudinary.com/di8stbg60/image/upload/v1791471258/banua-09_okq1dw.png" />
+  </div>
+  <div class="sd-text">
+    <div class="sd-title"><span class="sd-dot"></span> <span id="sdName">Bu Yuni</span> tertarik dengan rumah in</div>
+    <div class="sd-sub">BTN Banua Nagaya – Type 36 Subsidi</div>
+    <div class="sd-time">Sedang diminati</div>
+  </div>
+</div>
+
+<script>
+  const popup = document.getElementById('sedangDiminatiPopup');
+  const nameEl = document.getElementById('sdName');
+
+  // Nama contoh warga Indonesia, mayoritas nama yang umum pada usia dewasa; umur tidak ditampilkan
+  const animals = [
+    'Pak Agus', 'Pak Dedi', 'Pak Rudi', 'Pak Andi', 'Pak Budi',
+    'Pak Hendra', 'Pak Yanto', 'Pak Wahyu', 'Pak Arif', 'Pak Eko',
+    'Pak Joko', 'Pak Fajar', 'Pak Bambang', 'Pak Dimas', 'Pak Rian',
+    'Pak Irfan', 'Pak Asep', 'Pak Taufik', 'Pak Heri', 'Pak Bayu',
+    'Bu Rina', 'Bu Sari', 'Bu Dewi', 'Bu Yuni', 'Bu Fitri'
+  ];
+
+  function showPopup() {
+    popup.classList.add('show');
+  }
+  function hidePopup() {
+    popup.classList.remove('show');
+  }
+  function closePopup() {
+    hidePopup();
+    clearInterval(cycleTimer);
+  }
+
+  function updateName() {
+    const pick = animals[Math.floor(Math.random() * animals.length)];
+    nameEl.textContent = pick;
+  }
+
+  // Muncul pertama kali setelah 1.5 detik
+  setTimeout(() => {
+    updateName();
+    showPopup();
+  }, 1500);
+
+  // Siklus setiap 5 detik: sembunyi -> ganti nama -> tampil lagi
+  let cycleTimer = setInterval(() => {
+    hidePopup();
+    setTimeout(() => {
+      updateName();
+      showPopup();
+    }, 600);
+  }, 5000);
+</script>
+
+</div></div>
 </body>
 </html>
